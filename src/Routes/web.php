@@ -1,17 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Mariojgt\Onixpro\Controllers\HomeContoller;
+use Mariojgt\Onixpro\Controllers\BlocksController;
 use Mariojgt\Onixpro\Controllers\Auth\LoginController;
 use Mariojgt\Onixpro\Controllers\OnixproDashboardController;
-use Mariojgt\Onixpro\Controllers\HomeContoller;
-
-// protect route onix pro
-Route::group([
-    'middleware' => ['web', 'auth', 'verified'],
-], function () {
-    // Logout function
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-});
 
 // protect route onix pro
 Route::group([
@@ -27,4 +20,6 @@ Route::group([
 ], function () {
     // Example page required to be login
     Route::get('/onix-home', [OnixproDashboardController::class, 'onixHome'])->name('onix-home');
+    // Blocks index
+    Route::get('/blocks', [BlocksController::class, 'index'])->name('blocks');
 });

@@ -65,7 +65,7 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return Redirect::route('onixpro.login')->with('success', 'By :)');
+        return Redirect::route('onixpro')->with('success', 'By :)');
     }
 
     /**

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" >
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,19 @@
     <link href="{{ asset('vendor/Onixpro/css/app.css') }}" rel="stylesheet">
     @stack('css')
 </head>
+
 <body>
-    @if (Auth::check())
+
+
+    <div class="p-4 lg:p-10">
+        @if (Auth::check())
         <x-onixpro::layout.navbar />
-    @endif
-    <x-onixpro::layout.flash />
-    {{ $slot }}
+        @endif
+        <x-onixpro::layout.flash />
+        {{ $slot }}
+    </div>
+
+
     <script src="{{ asset('vendor/Onixpro/js/app.js') }}"></script>
     <script>
         const Toast = Swal.mixin({
@@ -30,4 +38,5 @@
     </script>
     @stack('js')
 </body>
+
 </html>

@@ -12,6 +12,7 @@
 
         <x-slot name="links">
             <div class="grid grid-cols-2 gap-1">
+
                 <div class="text-center sm:text-center whitespace-nowrap">
                     <x-onixpro::form.link route="{{ route('onix.forgot-password') }}" name="Forgot Password" />
                 </div>

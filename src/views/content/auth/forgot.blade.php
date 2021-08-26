@@ -1,7 +1,7 @@
 <x-onixpro::layout.login>
     <x-onixpro::auth.authconteiner title="Password Reset" >
         <x-slot name="form">
-            <x-onixpro::form.form action="{{ route('onixpro.password-reset') }}" >
+            <x-onixpro::form.form action="{{ route('onix.password-reset') }}" >
                 <div class="px-5 py-7">
                     <x-onixpro::form.email name="email" label="Email" />
                     <x-onixpro::form.submit name="Reset" />
@@ -12,7 +12,7 @@
         <x-slot name="links">
             <div class="px-5 py-7">
                 <div class="grid grid-cols-1 gap-3">
-                    <x-onixpro::form.link route="{{ route('onixpro.login') }}" name="Login" />
+                    <x-onixpro::form.link route="{{ route('onixpro') }}" name="Login" />
                 </div>
             </div>
         </x-slot>

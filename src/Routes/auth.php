@@ -25,6 +25,15 @@ Route::group([
     Route::post('/onixpro/password-change', [ResetPassword::class, 'passwordChange'])->name('onix.password.change');
 });
 
+// protect route onix pro
+Route::group([
+    'middleware' => ['web', 'auth'],
+], function () {
+    // Logout function
+    Route::get('/logout', [LoginController::class, 'logout'])->name('onix.logout');
+});
+
+
 // User verify account
 Route::group([
     'middleware' => ['web'],
