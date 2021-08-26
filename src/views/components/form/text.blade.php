@@ -1,6 +1,6 @@
 <div class="form-control p-3">
     <label class="label">
-        <span class="label-text">
+        <span class="label-text text-base-content">
             {{ $label ?? 'undefine' }}
         </span>
     </label>
