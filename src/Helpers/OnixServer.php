@@ -8,4 +8,9 @@ class OnixServer
     {
         $this->onixServerEndPoint = '';
     }
+
+    public function baseConection()
+    {
+        //request::get7
+    }
 }
