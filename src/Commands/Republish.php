@@ -41,15 +41,30 @@ class Republish extends Command
         $bar = $this->output->createProgressBar(5);
         $bar->start();
 
+        // Normal onix pro
         // First we move the resources where we keep the css and js files
         $targetFolderResource = resource_path('vendor/Onixpro/');
-        $destitionResource = __DIR__.'/../../Publish/Resource';
+        $destitionResource = __DIR__.'/../../Publish/Resource/Onixpro';
+        File::copyDirectory($targetFolderResource, $destitionResource);
+        $bar->advance(); // Little Progress bar
+
+        // Onix Pro public
+        // Now we move the already compiles files from the public
+        $targetFolderPublic = public_path('vendor/Onixpro/');
+        $destitionPublic = __DIR__.'/../../Publish/Public/Onixpro';
+        File::copyDirectory($targetFolderPublic, $destitionPublic);
+        $bar->advance(); // Little Progress bar
+
+        // Onix widget
+        // First we move the resources where we keep the css and js files
+        $targetFolderResource = resource_path('vendor/Onix/');
+        $destitionResource = __DIR__.'/../../Publish/Resource/Onix';
         File::copyDirectory($targetFolderResource, $destitionResource);
         $bar->advance(); // Little Progress bar
 
         // Now we move the already compiles files from the public
-        $targetFolderPublic = public_path('vendor/Onixpro/');
-        $destitionPublic = __DIR__.'/../../Publish/Public';
+        $targetFolderPublic = public_path('vendor/Onix/');
+        $destitionPublic = __DIR__.'/../../Publish/Public/Onix';
         File::copyDirectory($targetFolderPublic, $destitionPublic);
         $bar->advance(); // Little Progress bar
 

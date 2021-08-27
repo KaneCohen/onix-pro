@@ -23,5 +23,11 @@ Route::group([
     // Blocks index
     Route::get('/blocks', [BlocksController::class, 'index'])->name('blocks');
     Route::post('/blocks/store', [BlocksController::class, 'store'])->name('blocks.store');
+    Route::post('/blocks/update/{block}', [BlocksController::class, 'update'])->name('blocks.update');
     Route::get('/blocks/edit/{block}', [BlocksController::class, 'edit'])->name('blocks.edit');
+    Route::get('/blocks/edit/onix/{block}', [BlocksController::class, 'editHtml'])->name('blocks.edit.onix');
+
+    // Onix html edit load and save
+    Route::get('/blocks/html/load/{block}', [BlocksController::class, 'editorLoad'])->name('blocks.html.load');
+    Route::post('/blocks/html/save/{block}', [BlocksController::class, 'editorSave'])->name('blocks.html.save');
 });

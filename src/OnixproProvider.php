@@ -67,13 +67,23 @@ class OnixproProvider extends ServiceProvider
 
         // Publish the resource
         $this->publishes([
-            __DIR__.'/../Publish/Resource/' => resource_path('vendor/Onixpro/'),
+            __DIR__.'/../Publish/Resource/Onixpro' => resource_path('vendor/Onixpro/'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/../Publish/Resource/Onix' => resource_path('vendor/Onix/'),
+        ]);
+
 
         // Publish the public folder with the css and javascript pre compile
         $this->publishes([
-            __DIR__.'/../Publish/Public/' => public_path('vendor/Onixpro/'),
+            __DIR__.'/../Publish/Public/Onixpro' => public_path('vendor/Onixpro/'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/../Publish/Public/Onix' => public_path('vendor/Onix/'),
+        ]);
+
 
         // Publish the public folder
         $this->publishes([

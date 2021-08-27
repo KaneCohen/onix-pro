@@ -17,4 +17,7 @@ return [
 
     // Send the email of user verification once the user try to login
     'send_verification' => true,
+
+    // Middleehere
+    'onixpro_middleware' => ['web', 'auth', 'verified'],
 ];

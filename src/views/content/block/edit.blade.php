@@ -4,25 +4,21 @@
     <div class="grid grid-cols-1 gap-6">
         <div class="card bordered lg:bg-base-200 rounded-box">
             <div class="card-body">
-                <x-onixpro::form.form action="{{ route('blocks.store') }}">
+                <x-onixpro::form.form action="{{ route('blocks.update', $block->id) }}">
                     <div class="px-5 py-7">
-                        <x-onixpro::form.text name="label" label="label" />
-                        <x-onixpro::form.text name="category" label="category" />
+                        <x-onixpro::form.text name="label" label="label" value="{{ $block->label }}" />
+                        <x-onixpro::form.text name="category" label="category" value="{{ $block->category }}" />
                     </div>
                     <div class="modal-action p-10">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </x-onixpro::form.form>
-                <div class="flex flex-row w-full">
-                    <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">
-                        html here
-                    </div>
+                <div class="w-full bg-white">
+                    @includeIf($block->blade())
                 </div>
                 <div class="modal-action p-10">
-                    <button type="submit" class="btn btn-primary">Edit Html</button>
+                    <a href="{{ route('blocks.edit.onix', $block->id) }}" target="_blank" class="btn btn-primary">Edit Html</a>
                 </div>
-
-
             </div>
         </div>
     </div>

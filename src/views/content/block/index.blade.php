@@ -24,22 +24,20 @@
     <div class="grid grid-cols-1 gap-6">
 
         @foreach ($blocks as $item)
-            <div class="card bordered lg:bg-base-200 rounded-box">
-                <div class="card-body">
-                    <h2 class="card-title">{{ $item->label }}
-                        <div class="badge mx-2 badge-secondary">{{ $item->category }}</div>
-                    </h2>
-                    <div class="flex flex-row w-full">
-                        <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">
-                            {!! $item->content !!}
-                        </div>
-                    </div>
+        <div class="card bordered lg:bg-base-200 rounded-box">
+            <div class="card-body">
+                <h2 class="card-title">{{ $item->label }}
+                    <div class="badge mx-2 badge-secondary">{{ $item->category }}</div>
+                </h2>
+                <div class="w-full">
+                    @includeIf($item->blade())
+                </div>
 
-                    <div class="justify-end card-actions">
-                        <a class="btn btn-secondary" href="{{ route('blocks.edit', $item->id) }}" >Edit</a>
-                    </div>
+                <div class="justify-end card-actions">
+                    <a class="btn btn-secondary" href="{{ route('blocks.edit', $item->id) }}">Edit</a>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 
