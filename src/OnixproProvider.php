@@ -2,12 +2,9 @@
 
 namespace Mariojgt\Onixpro;
 
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use Mariojgt\Onixpro\Commands\Install;
 use Mariojgt\Onixpro\Commands\Republish;
-use Mariojgt\Onixpro\Events\UserVerifyEvent;
-use Mariojgt\Onixpro\Listeners\SendUserVerifyListener;
 
 class OnixproProvider extends ServiceProvider
 {
@@ -18,12 +15,6 @@ class OnixproProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Event for when you create a new user
-        Event::listen(
-            UserVerifyEvent::class,
-            [SendUserVerifyListener::class, 'handle']
-        );
-
         // Load some commands
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -32,17 +23,11 @@ class OnixproProvider extends ServiceProvider
             ]);
         }
 
-        // Loading Custom middlewhere
-        $this->app['router']->aliasMiddleware(
-            'boot_token', \Mariojgt\Onixpro\Middleware\BootTokenApi::class
-        );
-
         // Load onixpro views
         $this->loadViewsFrom(__DIR__.'/views', 'onixpro');
 
         // Load onixpro routes
         $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
-        $this->loadRoutesFrom(__DIR__.'/Routes/auth.php');
 
         // Load Migrations
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');

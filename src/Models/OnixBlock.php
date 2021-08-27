@@ -5,7 +5,7 @@ namespace Mariojgt\Onixpro\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Block extends Model
+class OnixBlock extends Model
 {
     use HasFactory;
 

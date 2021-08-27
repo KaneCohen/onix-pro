@@ -13,7 +13,7 @@ class CreateBlocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('blocks', function (Blueprint $table) {
+        Schema::create('onix_blocks', function (Blueprint $table) {
             $table->id();
             $table->string('label')->nullable();
             $table->mediumText('filepath')->nullable();
@@ -31,6 +31,6 @@ class CreateBlocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blocks');
+        Schema::dropIfExists('onix_blocks');
     }
 }

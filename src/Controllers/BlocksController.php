@@ -4,8 +4,9 @@ namespace Mariojgt\Onixpro\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Mariojgt\Onixpro\Models\Block;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Mariojgt\Onixpro\Models\OnixBlock;
 use Mariojgt\Onixpro\Helpers\OnixBuilder;
 
 class BlocksController extends Controller
@@ -15,7 +16,7 @@ class BlocksController extends Controller
      */
     public function index()
     {
-        $blocks = Block::paginate(10);
+        $blocks = OnixBlock::paginate(10);
         return view('onixpro::content.block.index', compact('blocks'));
     }
 
@@ -27,15 +28,27 @@ class BlocksController extends Controller
             'category' => ['required', 'string', 'max:255'],
         ]);
 
-        $block           = new Block();
+        $block           = new OnixBlock();
         $block->label    = Request('label');
         $block->category = Request('category');
+        // Add some demo data
+        $block->content =
+            '{"gjs-html":"<div class=\"min-h-screen bg-gradient-to-b from-purple-500 to-indigo-500 flex items-center justify-center\"><div class=\"bg-white p-4 rounded-md\"><div class=\"w-64 h-44 bg-gray-200 animate-pulse\"><\/div><div class=\"mt-8 h-32 w-full space-y-3\"><div class=\"w-20 h-6 bg-gray-200 rounded-full animate-pulse\"><\/div><div class=\"w-full h-4 bg-gray-200 rounded-full animate-pulse\"><\/div><div class=\"w-full h-4 bg-gray-200 rounded-full animate-pulse\"><\/div><div class=\"w-1-2 h-4 bg-gray-200 rounded-full animate-pulse\"><\/div><\/div><\/div><\/div>","gjs-components":"[{\"classes\":[\"min-h-screen\",\"bg-gradient-to-b\",\"from-purple-500\",\"to-indigo-500\",\"flex\",\"items-center\",\"justify-center\"],\"components\":[{\"classes\":[\"bg-white\",\"p-4\",\"rounded-md\"],\"components\":[{\"classes\":[\"w-64\",\"h-44\",\"bg-gray-200\",\"animate-pulse\"]},{\"classes\":[\"mt-8\",\"h-32\",\"w-full\",\"space-y-3\"],\"components\":[{\"classes\":[\"w-20\",\"h-6\",\"bg-gray-200\",\"rounded-full\",\"animate-pulse\"]},{\"classes\":[\"w-full\",\"h-4\",\"bg-gray-200\",\"rounded-full\",\"animate-pulse\"]},{\"classes\":[\"w-full\",\"h-4\",\"bg-gray-200\",\"rounded-full\",\"animate-pulse\"]},{\"classes\":[{\"name\":\"w-1-2\",\"label\":\"w-1\/2\"},\"h-4\",\"bg-gray-200\",\"rounded-full\",\"animate-pulse\"]}]}]}]}]","gjs-assets":"[]","gjs-css":"* { box-sizing: border-box; } body {margin: 0;}","gjs-styles":"[]"}';
+        $html = (array)json_decode($block->content);
+
+        // Create the fisical file
+        $onixFileManger = new OnixBuilder();
+        $filePath = $onixFileManger
+            ->savePageFile($html, Str::slug($block->label), 'views/components/onix');
+        // Save the file path
+        $block->filepath = $filePath;
         $block->save();
+
 
         return redirect()->back()->with('success', 'Created with success');
     }
 
-    public function update(Request $request, Block $block)
+    public function update(Request $request, OnixBlock $block)
     {
         // Validate the user Note the small update in the password verification
         $request->validate([
@@ -50,26 +63,26 @@ class BlocksController extends Controller
         return redirect()->back()->with('success', 'Updated with success');
     }
 
-    public function edit(Request $request, Block $block)
+    public function edit(Request $request, OnixBlock $block)
     {
         $html = (array)json_decode($block->content);
 
         return view('onixpro::content.block.edit', compact('block', 'html'));
     }
 
-    public function editHtml(Request $request, Block $block)
+    public function editHtml(Request $request, OnixBlock $block)
     {
         return view('onixpro::content.block.html', compact('block'));
     }
 
-    public function editorLoad(Block $block)
+    public function editorLoad(OnixBlock $block)
     {
         return response()->json([
             'data' => json_decode($block->content)
         ]);
     }
 
-    public function editorSave(Request $request, Block $block)
+    public function editorSave(Request $request, OnixBlock $block)
     {
         // Create the fisical file
         $onixFileManger = new OnixBuilder();
@@ -83,5 +96,15 @@ class BlocksController extends Controller
         return response()->json([
             'message' => 'data Saved'
         ]);
+    }
+
+    public function destroy(Request $request, $block)
+    {
+        $block = OnixBlock::findOrFail(decrypt($block));
+        $file_path = resource_path($block->filepath);
+        if (File::exists($file_path)) File::delete($file_path);
+        $block->delete();
+
+        return redirect()->back()->with('success', 'Deleted with success');
     }
 }

@@ -11,7 +11,7 @@ class OnixproDashboardController extends Controller
      */
     public function index()
     {
-        return view('onixpro::content.dashboard.index');
+        return view('onixpro::content.dashboard.home');
     }
 
     public function onixHome()

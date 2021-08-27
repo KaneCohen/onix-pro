@@ -19,5 +19,5 @@ return [
     'send_verification' => true,
 
     // Middleehere
-    'onixpro_middleware' => ['web', 'auth', 'verified'],
+    'onixpro_middleware' => ['web'],
 ];

@@ -13,10 +13,12 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('onix_pages', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('slug')->nullable();
             $table->longText('content')->nullable();
+            $table->mediumText('filepath')->nullable();
             // Seo fields
             $table->string('page_title')->nullable();
             $table->string('meta_description')->nullable();
@@ -31,6 +33,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('onix_pages');
     }
 }

@@ -6,10 +6,12 @@
             <input type="checkbox" id="my-modal-2" class="modal-toggle">
             <div class="modal">
                 <div class="modal-box">
-                    <x-onixpro::form.form action="{{ route('blocks.store') }}">
+                    <x-onixpro::form.form action="{{ route('pages.store') }}">
                         <div class="px-5 py-7">
-                            <x-onixpro::form.text name="label" label="label" />
-                            <x-onixpro::form.text name="category" label="category" />
+                            <x-onixpro::form.text name="title" label="title" />
+                            <x-onixpro::form.text name="page_title" label="page_title" />
+                            <x-onixpro::form.text name="slug" label="slug" placeholder="this-page-name" />
+                            <x-onixpro::form.text name="meta_description" label="meta_description" />
                         </div>
                         <div class="modal-action">
                             <button type="submit" class="btn btn-primary">Create</button>
@@ -26,15 +28,16 @@
         @foreach ($pages as $item)
         <div class="card bordered lg:bg-base-200 rounded-box">
             <div class="card-body">
-                <h2 class="card-title">{{ $item->label }}
-                    <div class="badge mx-2 badge-secondary">{{ $item->category }}</div>
+                <h2 class="card-title">{{ $item->title }}
+                    <div class="badge mx-2 badge-secondary"><a
+                            href="{{ route('page', $item->slug) }}" target="_blank" >{{ $item->slug }}</a></div>
                 </h2>
                 <div class="w-full">
                     @includeIf($item->blade())
                 </div>
 
                 <div class="justify-end card-actions">
-                    <a class="btn btn-secondary" href="{{ route('blocks.edit', $item->id) }}">Edit</a>
+                    <a class="btn btn-secondary" href="{{ route('pages.edit', $item->id) }}">Edit</a>
                 </div>
             </div>
         </div>

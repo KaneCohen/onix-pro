@@ -14,9 +14,7 @@
 
 
     <div class="p-4 lg:p-10">
-        @if (Auth::check())
         <x-onixpro::layout.navbar />
-        @endif
         <x-onixpro::layout.flash />
         {{ $slot }}
     </div>

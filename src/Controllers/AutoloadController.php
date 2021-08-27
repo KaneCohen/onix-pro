@@ -4,7 +4,7 @@ namespace Mariojgt\Onixpro\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Mariojgt\Onixpro\Models\Block;
+use Mariojgt\Onixpro\Models\OnixBlock;
 use App\Http\Controllers\Controller;
 use Mariojgt\Onixpro\Helpers\OnixBuilder;
 
@@ -12,7 +12,7 @@ class AutoloadController extends Controller
 {
     public function autoload()
     {
-        $blocks = Block::all();
+        $blocks = OnixBlock::all();
 
         $finalData = [];
         foreach ($blocks as $key => $value) {
