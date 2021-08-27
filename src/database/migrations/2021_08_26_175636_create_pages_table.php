@@ -17,6 +17,9 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->longText('content')->nullable();
+            // Seo fields
+            $table->string('page_title')->nullable();
+            $table->string('meta_description')->nullable();
             $table->timestamps();
         });
     }

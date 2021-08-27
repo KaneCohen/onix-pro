@@ -35,12 +35,19 @@ class OnixBuilder
         $Tidy         = new Tidy($bladeFileData);
         $htmlFormated = $Tidy->HTML($bladeFileData);
 
+        // Replace where you have the script so we can push to the right place
+        $content = str_replace('<script>', "@push('js')
+        <script> ", $htmlFormated);
+        $content = str_replace('</script>', " </script>
+        @endpush ", $content);
+
+        // File Name
         $fileName = '/onix_' . $fileName . '.blade.php';
         $filePath .= $fileName; // reference to load
         $path     .= $fileName; // where to save
 
         // Add the content to the file
-        File::put($path, $htmlFormated);
+        File::put($path, $content);
         return $filePath;
     }
 

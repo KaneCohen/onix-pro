@@ -6,14 +6,14 @@
     </div>
     <div class="hidden px-2 mx-2 navbar-center lg:flex">
         <div class="flex items-stretch">
-            <a class="btn btn-ghost btn-sm rounded-btn">
+            <a class="btn btn-ghost btn-sm rounded-btn" href="{{ route('pages') }}" >
                 Pages
             </a>
             <a class="btn btn-ghost btn-sm rounded-btn" href="{{ route('blocks') }}" >
                 Blocks
             </a>
             <a class="btn btn-ghost btn-sm rounded-btn">
-                Help
+                Onix Store
             </a>
             <a class="btn btn-ghost btn-sm rounded-btn" href="{{ route('onix.logout') }}" >
                 Logout

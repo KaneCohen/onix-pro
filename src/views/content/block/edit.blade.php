@@ -17,10 +17,10 @@
                     @includeIf($block->blade())
                 </div>
                 <div class="modal-action p-10">
-                    <a href="{{ route('blocks.edit.onix', $block->id) }}" target="_blank" class="btn btn-primary">Edit Html</a>
+                    <a href="{{ route('blocks.edit.onix', $block->id) }}" target="_blank" class="btn btn-primary">Edit
+                        with Grapejs</a>
                 </div>
             </div>
         </div>
     </div>
-
 </x-onixpro::layout.main>

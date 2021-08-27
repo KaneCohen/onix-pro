@@ -53,6 +53,10 @@ mix.js('resources/vendor/Onix/js/codeEditor/grapeCodeEditor.js', 'public/vendor/
     .sourceMaps()
     .version();
 
+// Grape js script editor
+mix.js('resources/vendor/Onix/js/scriptEditor/src/scriptEditor.js', 'public/vendor/Onix/js')
+    .sourceMaps()
+    .version();
 /* Grape js stuff */
 
 mix.sass('resources/vendor/Onix/sass/app.scss', 'public/vendor/Onix/css')

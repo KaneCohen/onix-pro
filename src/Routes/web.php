@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use Mariojgt\Onixpro\Controllers\HomeContoller;
+use Mariojgt\Onixpro\Controllers\PagesController;
 use Mariojgt\Onixpro\Controllers\BlocksController;
+use Mariojgt\Onixpro\Controllers\AutoloadController;
 use Mariojgt\Onixpro\Controllers\Auth\LoginController;
 use Mariojgt\Onixpro\Controllers\OnixproDashboardController;
-use Mariojgt\Onixpro\Controllers\AutoloadController;
 // protect route onix pro
 Route::group([
     'middleware' => ['web'],
@@ -26,6 +27,9 @@ Route::group([
     Route::post('/blocks/update/{block}', [BlocksController::class, 'update'])->name('blocks.update');
     Route::get('/blocks/edit/{block}', [BlocksController::class, 'edit'])->name('blocks.edit');
     Route::get('/blocks/edit/onix/{block}', [BlocksController::class, 'editHtml'])->name('blocks.edit.onix');
+
+    // Pages
+    Route::get('/pages', [PagesController::class, 'index'])->name('pages');
 
     // Onix html edit load and save
     Route::get('/blocks/html/load/{block}', [BlocksController::class, 'editorLoad'])->name('blocks.html.load');
