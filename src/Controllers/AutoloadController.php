@@ -12,9 +12,11 @@ class AutoloadController extends Controller
 {
     public function autoload()
     {
+        // Get all the local components
         $blocks = OnixBlock::all();
 
         $finalData = [];
+        // Loop those componenets
         foreach ($blocks as $key => $value) {
             if (empty($value->content)) {
                 continue;
