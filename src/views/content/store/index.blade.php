@@ -7,6 +7,7 @@
                 <h2 class="card-title">Name
                     <div class="badge mx-2 badge-secondary">Category</div>
                     <div class="badge mx-2 badge-primary">author</div>
+                    <div class="badge mx-2 badge-accent">type</div>
                 </h2>
                 <div class="w-full">
                     html here
