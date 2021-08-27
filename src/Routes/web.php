@@ -5,7 +5,7 @@ use Mariojgt\Onixpro\Controllers\HomeContoller;
 use Mariojgt\Onixpro\Controllers\BlocksController;
 use Mariojgt\Onixpro\Controllers\Auth\LoginController;
 use Mariojgt\Onixpro\Controllers\OnixproDashboardController;
-
+use Mariojgt\Onixpro\Controllers\AutoloadController;
 // protect route onix pro
 Route::group([
     'middleware' => ['web'],
@@ -30,4 +30,7 @@ Route::group([
     // Onix html edit load and save
     Route::get('/blocks/html/load/{block}', [BlocksController::class, 'editorLoad'])->name('blocks.html.load');
     Route::post('/blocks/html/save/{block}', [BlocksController::class, 'editorSave'])->name('blocks.html.save');
+
+    // Autoload components
+    Route::get('/onixpro/autoload', [AutoloadController::class, 'autoload'])->name('onixpro.autoload.block');
 });
