@@ -11,7 +11,7 @@ $requestApi = $managerApi->getKeyInformation();
 <div class="card col-span-1 row-span-3 shadow-lg xl:col-span-2 bg-base-300">
     <div class="card-body">
         <h2 class="my-4 text-4xl font-bold card-title">Onix Subscription Status
-            @if ($requestApi->json()['data']['is_valid'] == 1)
+            @if (!empty($requestApi->json()['data']['is_valid']) && $requestApi->json()['data']['is_valid'] == 1)
             <div class="badge badge-primary">Token Valid</div>
             @else
             <div class="badge badge-primary">Token Invalid or not setup</div>
@@ -20,12 +20,21 @@ $requestApi = $managerApi->getKeyInformation();
 
         <div class="mb-4 space-x-2 card-actions">
 
-            @if ($requestApi->json()['data']['is_valid'] == 1)
+            @if (!empty($requestApi->json()['data']['is_valid']) && $requestApi->json()['data']['is_valid'] == 1)
 
                 @if ($requestApi->json()['data']['plan'] == 2)
                     <div class="badge badge-secondary">Premium</div>
                 @else
                     <div class="badge badge-primary">Free</div>
+                    <div class="badge badge-primary">
+                            Components Download {{ $requestApi->json()['data']['components_downloads'] }}
+                    </div>
+                    <div class="badge badge-primary">
+                        Pages Download {{ $requestApi->json()['data']['pages_downloads'] }}
+                    </div>
+                    <div class="badge badge-primary">
+                        Uploads {{ $requestApi->json()['data']['uploads'] }}
+                    </div>
                 @endif
 
             @else
