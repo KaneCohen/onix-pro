@@ -30,7 +30,13 @@
                     <div class="badge mx-2 badge-secondary">{{ $item->category }}</div>
                 </h2>
                 <div class="w-full">
-                    @includeIf($item->blade())
+
+                    @php
+                        $itemHtml = (array)json_decode($item->content);
+                    @endphp
+                    <isolator htmlitem="{{ $itemHtml['gjs-html'] }}" > </isolator>
+
+                    {{-- @includeIf($item->blade()) --}}
                 </div>
 
                 <div class="justify-end card-actions">

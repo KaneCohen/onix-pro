@@ -7,6 +7,7 @@ use Mariojgt\Onixpro\Controllers\AutoloadController;
 use Mariojgt\Onixpro\Controllers\OnixStoreController;
 use Mariojgt\Onixpro\Controllers\OnixsPageRenderController;
 use Mariojgt\Onixpro\Controllers\OnixproDashboardController;
+use Mariojgt\Onixpro\Controllers\OnixProApiValidationController;
 // protect route onix pro
 Route::group([
     'middleware' => ['web'],
@@ -46,10 +47,21 @@ Route::group([
     Route::get('/pages/html/load/{page}', [PagesController::class, 'editorLoad'])->name('pages.html.load');
     Route::post('/pages/html/save/{page}', [PagesController::class, 'editorSave'])->name('pages.html.save');
 
+    // Load Image example
+    Route::get('/onix/image/imageload', [OnixContoller::class, 'imageLoad'])->name('onix.image.load');
+    // Save Image example
+    Route::post('/onix/image/imagesave', [OnixContoller::class, 'imageSave'])->name('onix.image.save');
 
     // Autoload components
     Route::get('/onixpro/autoload', [AutoloadController::class, 'autoload'])->name('onixpro.autoload.block');
 
     // Onix Store
-    Route::get('/onixpro/store', [OnixStoreController::class, 'index'])->name('onixpro.store');
+    Route::get('/onixpro/store/components', [OnixStoreController::class, 'index'])->name('onixpro.store.components');
+
+    // Onix Pro validation
+    Route::post('/onixpro/key/validate', [OnixProApiValidationController::class, 'validaKeyAndSave'])
+        ->name('onixpro.key.validate');
+    // Downlaod components
+    Route::post('/onixpro/component/download', [OnixProApiValidationController::class, 'downloadCompoents'])
+        ->name('onixpro.component.download');
 });

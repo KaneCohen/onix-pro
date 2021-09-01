@@ -13,7 +13,7 @@
 <body>
 
 
-    <div class="p-4 lg:p-10">
+    <div class="p-4 lg:p-10" id="app" >
         <x-onixpro::layout.navbar />
         <x-onixpro::layout.flash />
         {{ $slot }}
@@ -21,6 +21,7 @@
 
 
     <script src="{{ asset('vendor/Onixpro/js/app.js') }}"></script>
+    <script src="{{ asset('vendor/Onixpro/js/vue.js') }}"></script>
     <script>
         const Toast = Swal.mixin({
             toast            : true,

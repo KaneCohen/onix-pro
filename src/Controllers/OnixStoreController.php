@@ -15,6 +15,6 @@ class OnixStoreController  extends Controller
      */
     public function index()
     {
-        return view('onixpro::content.store.index');
+        return view('onixpro::content.store.index_components');
     }
 }

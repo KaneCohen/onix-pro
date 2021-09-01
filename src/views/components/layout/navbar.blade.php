@@ -12,8 +12,8 @@
             <a class="btn btn-ghost btn-sm rounded-btn" href="{{ route('blocks') }}" >
                 Blocks
             </a>
-            <a class="btn btn-ghost btn-sm rounded-btn" href="{{ route('onixpro.store') }}" >
-                Onix Store
+            <a class="btn btn-ghost btn-sm rounded-btn" href="{{ route('onixpro.store.components') }}" >
+                Onix Store components
             </a>
         </div>
     </div>

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class OnixKey extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'key',
+    ];
 }

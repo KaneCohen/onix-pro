@@ -18,6 +18,7 @@ class OnixBuilder
             $filePath = $path;
             $path = resource_path($path);
         }
+
         // If the path don;t exist create one
         File::isDirectory($path) or File::makeDirectory($path, 0777, true, true);
 

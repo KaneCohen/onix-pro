@@ -40,13 +40,7 @@ class Install extends Command
     {
         // Copy the need file to make the onixpro to work
         Artisan::call('vendor:publish', [
-            '--provider' => 'Mariojgt\Onixpro\SkeletonProvider',
-            '--force'    => true,
-        ]);
-
-        // Copy the need file to make the laravel sanctum work
-        Artisan::call('vendor:publish', [
-            '--provider' => 'Laravel\Sanctum\SanctumServiceProvider',
+            '--provider' => 'Mariojgt\Onixpro\OnixproProvider',
             '--force'    => true,
         ]);
 

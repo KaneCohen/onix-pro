@@ -1,5 +1,15 @@
 <x-onixpro::layout.main>
 
+    @php
+        use Mariojgt\Onixpro\Models\OnixKey;
+        use Mariojgt\Onixpro\Helpers\OnixProApi;
+        $key = OnixKey::first();
+
+        $managerApi = new OnixProApi();
+        $requestApi = $managerApi->getKeyInformation();
+
+    @endphp
+
     <x-onixpro::key.validate />
 
     <div class="container mx-auto px-6 p-6 bg-base-200 w-full">
@@ -128,10 +138,10 @@
                             </p> --}}
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
-                                    <button type="button"
+                                    <a href="https://onixpro.net/register" target="_blank"
                                         class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                         Get your free key here
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +254,7 @@
                             </p> --}}
                             <div class="mt-6">
                                 <div class="rounded-md shadow">
-                                    <a href="#"
+                                    <a href="https://onixpro.net/register?plan=paid" target="_blank"
                                         class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                         Get your premium key here
                                     </a>
