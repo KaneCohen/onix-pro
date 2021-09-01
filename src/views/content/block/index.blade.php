@@ -65,14 +65,14 @@
 
     <div class="grid grid-cols-3 w-full p-2.5">
         {{ $blocks->links() }}
-        <div class="btn-group">
+        {{-- <div class="btn-group">
             <button class="btn">Previous</button>
             <button class="btn">1</button>
             <button class="btn btn-active">2</button>
             <button class="btn">3</button>
             <button class="btn">4</button>
             <button class="btn">Next</button>
-        </div>
+        </div> --}}
     </div>
 
 </x-onixpro::layout.main>

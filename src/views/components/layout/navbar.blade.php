@@ -15,6 +15,9 @@
             <a class="btn btn-ghost btn-sm rounded-btn" href="{{ route('onixpro.store.components') }}" >
                 Onix Store components
             </a>
+            <a class="btn btn-ghost btn-sm rounded-btn" href="{{ route('onixpro.store.pages') }}" >
+                Onix Store pages
+            </a>
         </div>
     </div>
     <div class="navbar-end">

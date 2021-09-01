@@ -42,6 +42,7 @@ Route::group([
     Route::get('/pages/edit/{page}', [PagesController::class, 'edit'])->name('pages.edit');
     Route::get('/pages/edit/onix/{page}', [PagesController::class, 'editHtml'])->name('pages.edit.onix');
     Route::post('/pages/update/{page}', [PagesController::class, 'update'])->name('pages.update');
+    Route::any('/pages/delete/{page}', [PagesController::class, 'destroy'])->name('pages.delete');
 
     // Onix Pages html edit load and save
     Route::get('/pages/html/load/{page}', [PagesController::class, 'editorLoad'])->name('pages.html.load');
@@ -56,7 +57,8 @@ Route::group([
     Route::get('/onixpro/autoload', [AutoloadController::class, 'autoload'])->name('onixpro.autoload.block');
 
     // Onix Store
-    Route::get('/onixpro/store/components', [OnixStoreController::class, 'index'])->name('onixpro.store.components');
+    Route::get('/onixpro/store/components', [OnixStoreController::class, 'componentsStore'])->name('onixpro.store.components');
+    Route::get('/onixpro/store/pages', [OnixStoreController::class, 'pagedStore'])->name('onixpro.store.pages');
 
     // Onix Pro validation
     Route::post('/onixpro/key/validate', [OnixProApiValidationController::class, 'validaKeyAndSave'])
@@ -64,4 +66,7 @@ Route::group([
     // Downlaod components
     Route::post('/onixpro/component/download', [OnixProApiValidationController::class, 'downloadCompoents'])
         ->name('onixpro.component.download');
+    // Download page
+    Route::post('/onixpro/page/download', [OnixProApiValidationController::class, 'downloadPages'])
+        ->name('onixpro.page.download');
 });

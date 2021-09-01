@@ -66,4 +66,39 @@ class OnixProApiValidationController extends Controller
             ],
         ]);
     }
+
+    public function downloadPages(Request $request)
+    {
+        $request->validate([
+            'id'       => 'required',
+        ]);
+
+        $managerApi = new OnixProApi();
+        $requestApi = $managerApi->downloadPage(Request('id'));
+
+        // Get the json data
+        $data                   = $requestApi->json();
+        $page                   = new OnixPage();
+        $page->title            = $data['title'];
+        $page->page_title       = $data['page_title'];
+        $page->slug             = $data['slug'];
+        $page->meta_description = $data['meta_description'];
+
+        // Save in the grape js format
+        $page->content = $data['content'];
+        $html = (array)json_decode($page->content);
+        // Create the fisical file
+        $onixFileManger = new OnixBuilder();
+        $filePath = $onixFileManger
+            ->savePageFile($html, Str::slug($page->title), 'views/pages/onix');
+        // Save the file path
+        $page->filepath = $filePath;
+        $page->save();
+
+        return json_encode([
+            'data' => [
+                'message' => 'page success download an ready to use.'
+            ],
+        ]);
+    }
 }

@@ -4,6 +4,7 @@ import { createApp, h } from "vue";
 import tabs from "./vue_components/Tabs";
 import Tab from "./vue_components/Tab";
 import StoreComponents from "./vue_components/storeComponents";
+import StorePages from "./vue_components/storePages";
 import isolator from "./vue_components/isolator";
 
 const el = document.getElementById("app");
@@ -59,6 +60,7 @@ app.mixin({
 app.component("tabs", tabs);
 app.component("tab", Tab);
 app.component("store-components", StoreComponents);
+app.component("store-pages", StorePages);
 app.component("isolator", isolator);
 
 app.mount(el);

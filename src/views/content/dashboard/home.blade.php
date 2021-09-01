@@ -1,14 +1,5 @@
 <x-onixpro::layout.main>
 
-    @php
-        use Mariojgt\Onixpro\Models\OnixKey;
-        use Mariojgt\Onixpro\Helpers\OnixProApi;
-        $key = OnixKey::first();
-
-        $managerApi = new OnixProApi();
-        $requestApi = $managerApi->getKeyInformation();
-
-    @endphp
 
     <x-onixpro::key.validate />
 
@@ -18,11 +9,10 @@
                 Features.
             </h2>
             <p class="mt-2 leading-8 font-extrabold tracking-tight text-base sm:text-4xl">
-                Onix Pro Plans.
+                Onix Pro Plans
             </p>
             <p class="mt-2 leading-8 font-extrabold tracking-tight text-base sm:text-4xl">
-                Note that onix pro use <a href="https://tailwindcss.com/">Tailwind css</a> a powerful
-                utility classes css framework.
+                Note that onix pro use <a class="link link-primary" href="https://tailwindcss.com/">Tailwind css</a> a powerful utility classes css framework and by default we use the <a class="link link-primary" href="https://daisyui.com/">Dasy ui</a>.
             </p>
         </div>
 
@@ -59,7 +49,7 @@
                                             </svg>
                                         </div>
                                         <p class="ml-3 leading-5 text-base">
-                                            Download up to 15 per month components from the onix store.
+                                            Download up to 10 per month components from the onix store.
                                         </p>
                                     </li>
                                     <li class="flex items-start lg:col-span-1">
@@ -72,7 +62,7 @@
                                             </svg>
                                         </div>
                                         <p class="ml-3 leading-5 text-base">
-                                            Download up to 15 per month pages from the onix store.
+                                            Download up to 10 per month pages from the onix store.
                                         </p>
                                     </li>
                                     <li class="flex items-start lg:col-span-1">
@@ -137,12 +127,10 @@
                                 </span>
                             </p> --}}
                             <div class="mt-6">
-                                <div class="rounded-md shadow">
-                                    <a href="https://onixpro.net/register" target="_blank"
+                                <a href="https://onixpro.net/register" target="_blank"
                                         class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                         Get your free key here
                                     </a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -163,8 +151,7 @@
                                 Paid
                             </h3>
                             <p class="mt-6 leading-6 text-base">
-                                Unlock some amazing features to help you quick create amazing page, and suport the onix
-                                pro development.
+                                Unlock some amazing features to help you quick create amazing page, and support the onyx pro development.
                             </p>
                             <div class="mt-8">
                                 <div class="flex items-center">
@@ -239,7 +226,7 @@
                             <div
                                 class="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-gray-900 dark:text-white">
                                 <span>
-                                    $2/mo
+                                    £2/mo
                                 </span>
                             </div>
 

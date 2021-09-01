@@ -11,7 +11,7 @@
 <x-onixpro::layout.main>
 
     @if ($requestApi->json()['data']['is_valid'] == 1)
-        <store-components onixkey="{{ $key->key }}" > </store-components>
+        <store-pages onixkey="{{ $key->key }}" > </store-pages>
     @else
         <div class="badge badge-primary">Token Invalid or not setup.</div>
     @endif

@@ -13,8 +13,16 @@ class OnixStoreController  extends Controller
     /**
      * @return [blade view]
      */
-    public function index()
+    public function componentsStore()
     {
         return view('onixpro::content.store.index_components');
+    }
+
+    /**
+     * @return [blade view]
+     */
+    public function pagedStore()
+    {
+        return view('onixpro::content.store.index_pages');
     }
 }

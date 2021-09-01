@@ -19,6 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('slug')->nullable();
             $table->longText('content')->nullable();
             $table->mediumText('filepath')->nullable();
+            $table->integer('standalone')->default(0);
             // Seo fields
             $table->string('page_title')->nullable();
             $table->string('meta_description')->nullable();

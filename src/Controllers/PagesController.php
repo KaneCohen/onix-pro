@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Mariojgt\Onixpro\Models\OnixPage;
 use Mariojgt\Onixpro\Helpers\OnixBuilder;
 
@@ -67,6 +68,7 @@ class PagesController extends Controller
         $page->page_title       = Request('page_title');
         $page->slug             = Request('slug');
         $page->meta_description = Request('meta_description');
+        $page->standalone       = intval(Request('standalone'));
         $page->save();
 
         return redirect()->back()->with('success', 'Updated with success');
@@ -93,8 +95,11 @@ class PagesController extends Controller
     {
         // Create the fisical file
         $onixFileManger = new OnixBuilder();
+
+        $saveAdPage = $page->standalone == 1 ? true : false;
+
         $filePath = $onixFileManger
-            ->savePageFile(Request('data'), Str::slug($page->title), 'views/pages/onix');
+            ->savePageFile(Request('data'), Str::slug($page->title), 'views/pages/onix', $saveAdPage);
         // Save in the database so we can edit later
         $page->content  = json_encode(Request('data'));
         $page->filepath = $filePath;
@@ -103,5 +108,15 @@ class PagesController extends Controller
         return response()->json([
             'message' => 'data Saved'
         ]);
+    }
+
+    public function destroy(Request $request, $page)
+    {
+        $page = OnixPage::findOrFail(decrypt($page));
+        $file_path = resource_path($page->filepath);
+        if (File::exists($file_path)) File::delete($file_path);
+        $page->delete();
+
+        return redirect()->back()->with('success', 'Deleted with success');
     }
 }

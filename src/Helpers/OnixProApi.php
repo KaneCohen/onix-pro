@@ -39,4 +39,14 @@ class OnixProApi
 
         return $response;
     }
+
+    public function downloadPage($id)
+    {
+        $response = Http::withToken($this->bearerToken)->get($this->end_point . '/api/page/downlaod/'. $id, [
+            //'name' => 'Steve',
+            //'role' => 'Network Administrator',
+        ]);
+
+        return $response;
+    }
 }

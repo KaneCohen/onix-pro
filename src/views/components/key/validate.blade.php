@@ -1,10 +1,10 @@
 @php
-    use Mariojgt\Onixpro\Models\OnixKey;
-    use Mariojgt\Onixpro\Helpers\OnixProApi;
-    $key = OnixKey::first();
+use Mariojgt\Onixpro\Models\OnixKey;
+use Mariojgt\Onixpro\Helpers\OnixProApi;
+$key = OnixKey::first();
 
-    $managerApi = new OnixProApi();
-    $requestApi = $managerApi->getKeyInformation();
+$managerApi = new OnixProApi();
+$requestApi = $managerApi->getKeyInformation();
 
 @endphp
 
@@ -14,9 +14,10 @@
             @if ($requestApi->json()['data']['is_valid'] == 1)
             <div class="badge badge-primary">Token Valid</div>
             @else
-                <div class="badge badge-primary">Token Invalid or not setup</div>
+            <div class="badge badge-primary">Token Invalid or not setup</div>
             @endif
         </h2>
+
         <div class="mb-4 space-x-2 card-actions">
 
             @if ($requestApi->json()['data']['is_valid'] == 1)
@@ -30,7 +31,6 @@
             @else
                 <div class="badge badge-primary">Token Invalid or not setup.</div>
             @endif
-
         </div>
 
         <x-onixpro::form.form action="{{ route('onixpro.key.validate') }}">
@@ -39,7 +39,9 @@
             </div>
             <div class="modal-action">
                 <button type="submit" class="btn btn-primary">Validate key</button>
+                <a href="https://onixpro.net/home_dashboard" class="btn btn-primary">Home profile</a>
             </div>
         </x-onixpro::form.form>
+
     </div>
 </div>
