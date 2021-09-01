@@ -1,21 +1,18 @@
 ![image info](https://raw.githubusercontent.com/mariojgt/onixpro/master/Publish/Public/image/onixpro.png)
 
 # Onixpro
-This Laravel packages contain a very simple structure for any kind of packages development for Laravel
+
+Onix pro is a page builder that use grape-js, tailwind and integrate with laravel, Onix Pro allow you to save pages, blocks and use the Onix Pro Store a server to quickly help you build pages.
 
 # Features
 
-- [ ] Clean and basic start point in Laravel package development.
-- [ ] Webpack setup with tailwind css ,sweetalert2 and vue3 basic setup.
-- [ ] Simple out of the box Laravel Authentication, using the package.
-- [ ] Example Laravel components, and layout structure.
-- [ ] Tailwind with npm presetup for runing with packages.
-- [ ] Republish command
-- [ ] Reusable laravel layout
-- [ ] Dynamic form
-- [ ] Lightweight
-- [ ] Dark|light mode out of the box
-- [ ] Now with api read to use with a mobile aplication
+- [ ] Tailwind css framework based, all the components out of the box works with tailwind.
+- [ ] Quickly page desing.
+- [ ] Simple Laravel integration.
+- [ ] Onix Store allow you to download new designs on the fly.
+- [ ] Npm presetup ready to be modify to you need.
+- [ ] Open source you can change for you needs.
+- [ ] Out of the box integrated with Daisy Ui framework, but can be disable.
 
 # Installation
 
@@ -25,51 +22,7 @@ You have 2 options.
 
 1. composer require mariojgt/onixpro
 2. php artsain vendor:publish --force  (select the package number)
+3. php artisan migrate
+4. to to the url yourproject.com/onixpro
 
-### Second Option gitclone (Recommended if you like to change and make to your own)
-
-1. git clone https://github.com/mariojgt/onixpro
-
-2. Setup you composer to use local VCS
-
-3. ```javascript
-   "repositories": [
-           {
-               "type" : "path",
-               "url": "packages/onixpro", // Path to your local folder package
-               "options": {
-                   "symlink": true
-               }
-           }
-       ],
-       "require": {
-           "php": "^7.3|^8.0", //Example
-           "fideloper/proxy": "^4.4",//Example
-           "fruitcake/laravel-cors": "^2.0",//Example
-           "guzzlehttp/guzzle": "^7.0.1",//Example
-           "laravel/framework": "^8.12",//Example
-           "laravel/tinker": "^2.5",//Example
-           "mariojgt/onixpro": "@dev"// Here is where you add the package reference
-       },
-   ```
-
-4. php artsain vendor:publish --force  (select the package number)
-
-## Command Republish
-
-The following commands
-
-```php
-php artisan republish:onixpro
-```
-
-Will move you changes in your resources like the js or css back to the packages useful to speed up development.
-
-# Packages info
-
-This package purpose is to give a fresh start for a new package so you can use those premade tools or just delete and use the package onixpro, note the by default the system don't allow registration but you can change that i the onixpro config file.
-# Easy way to install
-
-```php
-php artisan install:onixpro
-```
+Onix Pro if free to use but if you wish to use the store to quickly download pages or block you have to create one account in the official website and select a free or Premium plan, more information https://onixpro.net/
