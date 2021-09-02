@@ -5,6 +5,7 @@ use Mariojgt\Onixpro\Controllers\PagesController;
 use Mariojgt\Onixpro\Controllers\BlocksController;
 use Mariojgt\Onixpro\Controllers\AutoloadController;
 use Mariojgt\Onixpro\Controllers\OnixStoreController;
+use Mariojgt\Onixpro\Controllers\OnixSearchController;
 use Mariojgt\Onixpro\Controllers\OnixsPageRenderController;
 use Mariojgt\Onixpro\Controllers\OnixproDashboardController;
 use Mariojgt\Onixpro\Controllers\OnixProApiValidationController;
@@ -24,6 +25,11 @@ Route::group([
 ], function () {
     // Example page required to be login
     Route::get('/onix-home', [OnixproDashboardController::class, 'onixHome'])->name('onix-home');
+
+    // Onix Search
+    Route::post('/onixserver/search', [OnixSearchController::class, 'index'])
+        ->name('onixserver.search');
+
     // Blocks index
     Route::get('/blocks', [BlocksController::class, 'index'])->name('blocks');
     Route::post('/blocks/store', [BlocksController::class, 'store'])->name('blocks.store');

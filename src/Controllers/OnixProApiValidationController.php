@@ -14,6 +14,12 @@ use Mariojgt\Onixpro\Helpers\OnixProApi;
 
 class OnixProApiValidationController extends Controller
 {
+    /**
+     * Validate the onix key and save in the database
+     * @param Request $request
+     *
+     * @return [type]
+     */
     public function validaKeyAndSave(Request $request)
     {
         $request->validate([
@@ -36,6 +42,12 @@ class OnixProApiValidationController extends Controller
         }
     }
 
+    /**
+     * Logic to download the component in the store not that you need a valid key
+     * @param Request $request
+     *
+     * @return [type]
+     */
     public function downloadCompoents(Request $request)
     {
         $request->validate([
@@ -77,6 +89,12 @@ class OnixProApiValidationController extends Controller
         }
     }
 
+    /**
+     * Logic to pages the component in the store not that you need a valid key
+     * @param Request $request
+     *
+     * @return [type]
+     */
     public function downloadPages(Request $request)
     {
         $request->validate([

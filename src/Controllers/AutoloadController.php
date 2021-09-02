@@ -6,7 +6,6 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Mariojgt\Onixpro\Models\OnixBlock;
 use App\Http\Controllers\Controller;
-use Mariojgt\Onixpro\Helpers\OnixBuilder;
 
 class AutoloadController extends Controller
 {

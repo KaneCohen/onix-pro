@@ -75,6 +75,12 @@ class BlocksController extends Controller
         return view('onixpro::content.block.html', compact('block'));
     }
 
+    /**
+     * Load the information to the grapejs editor using request
+     * @param OnixBlock $block
+     *
+     * @return [type]
+     */
     public function editorLoad(OnixBlock $block)
     {
         return response()->json([
@@ -82,6 +88,13 @@ class BlocksController extends Controller
         ]);
     }
 
+    /**
+     * Save the grapejs information in the database
+     * @param Request $request
+     * @param OnixBlock $block
+     *
+     * @return [type]
+     */
     public function editorSave(Request $request, OnixBlock $block)
     {
         // Create the fisical file

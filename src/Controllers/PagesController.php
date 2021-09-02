@@ -84,6 +84,12 @@ class PagesController extends Controller
         return view('onixpro::content.page.html', compact('page'));
     }
 
+    /**
+     * Load the page in the grape js using request
+     * @param OnixPage $page
+     *
+     * @return [type]
+     */
     public function editorLoad(OnixPage $page)
     {
         return response()->json([
@@ -91,6 +97,13 @@ class PagesController extends Controller
         ]);
     }
 
+    /**
+     * Save the grape js page in the database
+     * @param Request $request
+     * @param OnixPage $page
+     *
+     * @return [type]
+     */
     public function editorSave(Request $request, OnixPage $page)
     {
         // Create the fisical file
