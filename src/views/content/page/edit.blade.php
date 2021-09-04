@@ -13,8 +13,6 @@
                         <x-onixpro::form.text name="meta_description" label="meta_description"
                             value="{{ $page->meta_description }}" />
 
-                        <a class="#">It's just a simple link</a>
-
                         @if ($page->standalone == 1)
                         <x-onixpro::form.switch name="standalone" label="Is Active" checked="true"
                             value="{{ $page->standalone }}" />
@@ -24,7 +22,7 @@
                                 class="inline-flex items-center bg-white leading-none text-pink-600 rounded-full p-2 shadow text-teal text-sm w-full">
                                 <span
                                     class="inline-flex bg-pink-600 text-white rounded-full h-6 px-3 justify-center items-center">Standalone</span>
-                                <span class="inline-flex px-2">If set as true a fuly page will be generated with css and
+                                <span class="inline-flex px-2">If set as true a fully page will be generated with css and
                                     javascript, and the seo fields.</span>
                             </div>
                         </div>

@@ -6,25 +6,27 @@ use Mariojgt\Onixpro\Controllers\BlocksController;
 use Mariojgt\Onixpro\Controllers\AutoloadController;
 use Mariojgt\Onixpro\Controllers\OnixStoreController;
 use Mariojgt\Onixpro\Controllers\OnixSearchController;
+use Mariojgt\Onixpro\Controllers\OnixproAssetController;
 use Mariojgt\Onixpro\Controllers\OnixsPageRenderController;
 use Mariojgt\Onixpro\Controllers\OnixproDashboardController;
 use Mariojgt\Onixpro\Controllers\OnixProApiValidationController;
-// protect route onix pro
-Route::group([
-    'middleware' => ['web'],
-], function () {
-    // Example page required to be login
-    Route::get('/onixpro', [OnixproDashboardController::class, 'index'])->name('onixpro');
 
-    Route::get('/page/{slug}', [OnixsPageRenderController::class, 'index'])->name('page');
-});
 
-// protect route onix pro
+// Example how you can render a page
+if (config('onixpro.disable_page_view') == false) {
+    Route::group([
+        'middleware' => ['web'],
+    ], function () {
+        Route::get('page/{slug}', [OnixsPageRenderController::class, 'index'])->name('page');
+    });
+}
+
+// Protect route onix pro
 Route::group([
     'middleware' => config('onixpro.onixpro_middleware'),
 ], function () {
     // Example page required to be login
-    Route::get('/onix-home', [OnixproDashboardController::class, 'onixHome'])->name('onix-home');
+    Route::get('/onixpro', [OnixproDashboardController::class, 'index'])->name('onixpro');
 
     // Onix Search
     Route::post('/onixserver/search', [OnixSearchController::class, 'index'])
@@ -57,9 +59,9 @@ Route::group([
     Route::post('/pages/html/save/{page}', [PagesController::class, 'editorSave'])->name('pages.html.save');
 
     // Load Image example
-    Route::get('/onix/image/imageload', [OnixContoller::class, 'imageLoad'])->name('onix.image.load');
+    Route::get('/onix/image/imageload', [OnixproAssetController::class, 'imageLoad'])->name('onix.image.load');
     // Save Image example
-    Route::post('/onix/image/imagesave', [OnixContoller::class, 'imageSave'])->name('onix.image.save');
+    Route::post('/onix/image/imagesave', [OnixproAssetController::class, 'imageSave'])->name('onix.image.save');
 
     // Autoload components
     Route::get('/onixpro/autoload', [AutoloadController::class, 'autoload'])->name('onixpro.autoload.block');

@@ -24,13 +24,13 @@ class OnixproProvider extends ServiceProvider
         }
 
         // Load onixpro views
-        $this->loadViewsFrom(__DIR__.'/views', 'onixpro');
+        $this->loadViewsFrom(__DIR__ . '/views', 'onixpro');
 
         // Load onixpro routes
-        $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/Routes/web.php');
 
         // Load Migrations
-        $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
     }
 
     /**
@@ -47,32 +47,37 @@ class OnixproProvider extends ServiceProvider
     {
         // Publish the npm
         $this->publishes([
-            __DIR__.'/../Publish/Npm/' => base_path(),
+            __DIR__ . '/../Publish/Npm/' => base_path(),
         ]);
 
         // Publish the resource
         $this->publishes([
-            __DIR__.'/../Publish/Resource/Onixpro' => resource_path('vendor/Onixpro/'),
+            __DIR__ . '/../Publish/Resource/Onixpro' => resource_path('vendor/Onixpro/'),
         ]);
 
         $this->publishes([
-            __DIR__.'/../Publish/Resource/Onix' => resource_path('vendor/Onix/'),
+            __DIR__ . '/../Publish/Resource/Onix' => resource_path('vendor/Onix/'),
         ]);
 
 
         // Publish the public folder with the css and javascript pre compile
         $this->publishes([
-            __DIR__.'/../Publish/Public/Onixpro' => public_path('vendor/Onixpro/'),
+            __DIR__ . '/../Publish/Public/Onixpro' => public_path('vendor/Onixpro/'),
         ]);
 
         $this->publishes([
-            __DIR__.'/../Publish/Public/Onix' => public_path('vendor/Onix/'),
+            __DIR__ . '/../Publish/Public/Onix' => public_path('vendor/Onix/'),
         ]);
 
 
         // Publish the public folder
         $this->publishes([
-            __DIR__.'/../Publish/Config/' => config_path(''),
+            __DIR__ . '/../Publish/Config/' => config_path(''),
         ]);
+
+        // Publish the auth scale folding for the views
+        $this->publishes([
+            __DIR__ . '/../Publish/components/' => resource_path('views/components'),
+        ], 'onix-components');
     }
 }
