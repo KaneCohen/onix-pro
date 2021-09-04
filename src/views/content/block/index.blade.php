@@ -40,22 +40,23 @@
                 </div>
 
                 <div class="justify-end card-actions">
+
+                    <a class="btn btn-primary" href="{{ route('blocks.duplicate', $item->id) }}">Duplicate</a>
                     <a class="btn btn-secondary" href="{{ route('blocks.edit', $item->id) }}">Edit</a>
                     {{-- Delete confirm --}}
-                    <label for="my-modal-delete" class="btn btn-warning modal-button">Delete</label>
-                    <input type="checkbox" id="my-modal-delete" class="modal-toggle">
+                    <label for="my-modal-delete{{ $item->id }}" class="btn btn-warning modal-button">Delete</label>
+                    <input type="checkbox" id="my-modal-delete{{ $item->id }}" class="modal-toggle">
                     <div class="modal">
                         <div class="modal-box">
                             <p>
                                 Are you sure you want to delete ?
                             </p>
                             <div class="modal-action">
-                                <a href="{{ route('blocks.delete', encrypt($item->id)) }}" for="my-modal-delete" class="btn btn-warning">Yes</a>
-                                <label for="my-modal-delete" class="btn">No</label>
+                                <a href="{{ route('blocks.delete', encrypt($item->id)) }}" for="my-modal-delete{{ $item->id }}" class="btn btn-warning">Yes</a>
+                                <label for="my-modal-delete{{ $item->id }}" class="btn">No</label>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

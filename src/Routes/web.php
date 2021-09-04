@@ -37,6 +37,7 @@ Route::group([
     Route::post('/blocks/update/{block}', [BlocksController::class, 'update'])->name('blocks.update');
     Route::get('/blocks/edit/{block}', [BlocksController::class, 'edit'])->name('blocks.edit');
     Route::get('/blocks/edit/onix/{block}', [BlocksController::class, 'editHtml'])->name('blocks.edit.onix');
+    Route::get('/blocks/duplicate/{block}', [BlocksController::class, 'duplicate'])->name('blocks.duplicate');
 
     // Onix blocks html edit load and save
     Route::get('/blocks/html/load/{block}', [BlocksController::class, 'editorLoad'])->name('blocks.html.load');
@@ -47,6 +48,7 @@ Route::group([
     Route::post('/pages/store', [PagesController::class, 'store'])->name('pages.store');
     Route::get('/pages/edit/{page}', [PagesController::class, 'edit'])->name('pages.edit');
     Route::get('/pages/edit/onix/{page}', [PagesController::class, 'editHtml'])->name('pages.edit.onix');
+    Route::get('/pages/duplicate/{page}', [PagesController::class, 'duplicate'])->name('pages.duplicate');
     Route::post('/pages/update/{page}', [PagesController::class, 'update'])->name('pages.update');
     Route::any('/pages/delete/{page}', [PagesController::class, 'destroy'])->name('pages.delete');
 

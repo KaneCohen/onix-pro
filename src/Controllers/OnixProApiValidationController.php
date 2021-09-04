@@ -35,8 +35,13 @@ class OnixProApiValidationController extends Controller
         $managerApi = new OnixProApi();
         $requestApi = $managerApi->getKeyInformation();
 
-        if ($requestApi->json()['data']['is_valid'] == 1) {
-            return redirect()->back()->with('success', 'Token Valid.');
+
+        if (!empty($requestApi->json()['data']['is_valid'])) {
+            if ($requestApi->json()['data']['is_valid'] == 1) {
+                return redirect()->back()->with('success', 'Token Valid.');
+            } else {
+                return redirect()->back()->with('error', 'Token not valid.');
+            }
         } else {
             return redirect()->back()->with('error', 'Token not valid.');
         }

@@ -123,6 +123,36 @@ class PagesController extends Controller
         ]);
     }
 
+
+    /**
+     * Fuction that duplicate this block
+     *
+     * @param Request $request
+     * @param OnixPage $page
+     *
+     * @return [type]
+     */
+    public function duplicate(Request $request, OnixPage $page)
+    {
+        DB::beginTransaction();
+        // Copy attributes
+        $clone        = $page->replicate();
+        $clone->title = $clone->title . '_copy';
+        //save model before you recreate relations (so it has an id)
+        $clone->push();
+
+        $saveAdPage = $page->standalone == 1 ? true : false;
+        // Create the fisical file
+        $onixFileManger = new OnixBuilder();
+        $html = (array)json_decode($page->content);
+        $onixFileManger
+            ->savePageFile($html, Str::slug($clone->title), 'views/pages/onix', $saveAdPage);
+
+        DB::commit();
+
+        return redirect()->back()->with('success', 'Duplicated with success');
+    }
+
     public function destroy(Request $request, $page)
     {
         $page = OnixPage::findOrFail(decrypt($page));
