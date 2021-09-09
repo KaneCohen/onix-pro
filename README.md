@@ -1,6 +1,6 @@
 ![image info](https://raw.githubusercontent.com/mariojgt/onixpro/master/Publish/Public/image/onixpro.png)
 
-# Onixpro composer require mariojgt/onixpro
+# Onixpro (composer require mariojgt/onixpro)
 
 ## More information please check the tutorial in this link https://onixpro.net/tutorial
 
