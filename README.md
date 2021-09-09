@@ -2,6 +2,8 @@
 
 # Onixpro composer require mariojgt/onixpro
 
+## More information please check the tutorial in this link https://onixpro.net/tutorial
+
 Onix pro is a page builder that use grape-js, tailwind and integrate with laravel, Onix Pro allow you to save pages, blocks and use the Onix Pro Store a server to quickly help you build pages.
 
 # Features
