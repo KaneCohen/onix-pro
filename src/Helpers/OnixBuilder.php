@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\File;
 
 class OnixBuilder
 {
+    /**
+     * This fuction transform html in to a blde fiel and try to format
+     * @param mixed $content
+     * @param mixed $fileName
+     * @param null $path
+     * @param bool $pageTemplate
+     * @param mixed
+     *
+     * @return [type]
+     */
     public static function savePageFile($content, $fileName, $path = null, $pageTemplate = false,)
     {
         // If the path is default to a generic
@@ -39,6 +49,12 @@ class OnixBuilder
         return $filePath;
     }
 
+    /**
+     * This Fuction Tidy string in to html if is valid
+     * @param mixed $buffer
+     *
+     * @return [type]
+     */
     public static function tidyHTML($buffer)
     {
         // load our document into a DOM object
@@ -50,6 +66,12 @@ class OnixBuilder
         return ($dom->saveHTML());
     }
 
+    /**
+     * This Fuction Format html and return string ready to be save in a blade file
+     * @param mixed $content
+     *
+     * @return [type]
+     */
     public static function normalHtmlFormat($content)
     {
         $content = self::replaceBreakingWorlds($content);
@@ -71,6 +93,13 @@ class OnixBuilder
         return $htmlFormated;
     }
 
+    /**
+     * This Return the formated html return string ready to be save in a blade file
+     *
+     * @param mixed $content
+     *
+     * @return [type]
+     */
     public static function standaloneHtmlFormat($content)
     {
 
@@ -123,6 +152,13 @@ class OnixBuilder
         return $htmlFormated;
     }
 
+    /**
+     * This Fuction will be used to replace some breaking worlds
+     *
+     * @param mixed $html
+     *
+     * @return [type]
+     */
     public static function replaceBreakingWorlds($html)
     {
         // Replace comments that make a eeor in the file

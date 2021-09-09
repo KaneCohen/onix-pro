@@ -9,6 +9,11 @@ class OnixPage extends Model
 {
     use HasFactory;
 
+    /**
+     * This fuction return the blade file usable path
+     * example view($block->blade());
+     * @return [string]
+     */
     public function blade()
     {
         $raw = str_replace('.blade.php', '', $this->filepath);

@@ -15,7 +15,7 @@ class OnixproProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Load some commands
+        // Load the install and the republish commands
         if ($this->app->runningInConsole()) {
             $this->commands([
                 Republish::class,
@@ -58,7 +58,6 @@ class OnixproProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../Publish/Resource/Onix' => resource_path('vendor/Onix/'),
         ]);
-
 
         // Publish the public folder with the css and javascript pre compile
         $this->publishes([
