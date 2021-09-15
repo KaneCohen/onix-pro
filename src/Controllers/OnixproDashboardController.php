@@ -3,6 +3,8 @@
 namespace Mariojgt\Onixpro\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
+use Mariojgt\Onixpro\Helpers\OnixProApi;
 
 class OnixproDashboardController extends Controller
 {
@@ -11,11 +13,12 @@ class OnixproDashboardController extends Controller
      */
     public function index()
     {
-        return view('onixpro::content.dashboard.home');
-    }
+        $news = Cache::remember('onix-news', 3600, function () {
+            $apiManager = new OnixProApi();
+            $new        = $apiManager->getNews();
+            return $new->json()['data'];
+        });
 
-    public function onixHome()
-    {
-        return view('onixpro::content.dashboard.home');
+        return view('onixpro::content.dashboard.home', compact('news'));
     }
 }

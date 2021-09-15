@@ -26,6 +26,9 @@ class OnixProApiValidationController extends Controller
             'onix_key'       => 'required',
         ]);
 
+        // Clear that table
+        OnixKey::truncate();
+        // Create a new record
         OnixKey::firstOrCreate([
             'key' => Request('onix_key'),
         ], [

@@ -1,6 +1,5 @@
 <x-onixpro::layout.main>
 
-
     <x-onixpro::key.validate />
 
     <div class="container mx-auto px-6 p-6 bg-base-200 w-full">
@@ -12,9 +11,12 @@
                 Onix Pro Plans
             </p>
             <p class="mt-2 leading-8 font-extrabold tracking-tight text-base sm:text-4xl">
-                Note that onix pro use <a class="link link-primary" href="https://tailwindcss.com/">Tailwind css</a> a powerful utility classes css framework and by default we use the <a class="link link-primary" href="https://daisyui.com/">Dasy ui</a>.
+                Note that onix pro use <a class="link link-primary" href="https://tailwindcss.com/">Tailwind css</a> a
+                powerful utility classes css framework and by default we use the <a class="link link-primary"
+                    href="https://daisyui.com/">Dasy ui</a>.
             </p>
         </div>
+
 
         <div class="flex flex-wrap my-12 dark:text-white">
             <div class="w-full border-b p-8">
@@ -128,9 +130,9 @@
                             </p> --}}
                             <div class="mt-6">
                                 <a href="https://onixpro.net/register" target="_blank"
-                                        class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                                        Get your free key here
-                                    </a>
+                                    class="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                    Get your free key here
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -151,7 +153,8 @@
                                 Paid
                             </h3>
                             <p class="mt-6 leading-6 text-base">
-                                Unlock some amazing features to help you quick create amazing page, and support the onyx pro development.
+                                Unlock some amazing features to help you quick create amazing page, and support the onyx
+                                pro development.
                             </p>
                             <div class="mt-8">
                                 <div class="flex items-center">
@@ -254,7 +257,39 @@
             </div>
         </div>
 
+        <div class="card col-span-1 row-span-3 shadow-lg xl:col-span-2 bg-base-100">
+            <div class="card-body">
+                <h2 class="my-4 text-4xl font-bold card-title">Version Updates</h2>
+                <div class="m-10">
+                    @foreach ($news as $item)
+                        <div class="flex flex-col p-8 bg-base-300 shadow-md hover:shodow-lg rounded-2xl m-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-16 h-16 rounded-2xl p-3 border border-gray-800 text-primary bg-gray-900"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <div class="flex flex-col ml-3">
+                                        <div class="font-medium leading-none text-base-content">{{ $item['version'] }}</div>
+                                        <p class="text-sm text-base-content leading-none mt-1">{{ $item['message'] }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="{{ $item['link'] }}"
+                                    target="_blank" class="btn btn-primary">Open on Github</a>
+
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
+        </div>
+
     </div>
+
 
 
 </x-onixpro::layout.main>

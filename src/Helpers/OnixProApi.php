@@ -49,4 +49,15 @@ class OnixProApi
 
         return $response;
     }
+
+    /**
+     * Return teh update new from the server
+     * @return [type]
+     */
+    public function getNews()
+    {
+        $response = Http::get($this->end_point . '/api/onix/news/');
+
+        return $response;
+    }
 }
