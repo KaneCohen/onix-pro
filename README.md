@@ -20,7 +20,7 @@ Onix pro is a page builder that use grape-js, tailwind and integrate with larave
 
 You have 2 options.
 
-### First option via composer
+(composer require mariojgt/onixpro)
 
 1. composer require mariojgt/onixpro
 2. php artsain vendor:publish --force  (select the package number)
