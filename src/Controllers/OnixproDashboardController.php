@@ -8,6 +8,9 @@ use Mariojgt\Onixpro\Helpers\OnixProApi;
 
 class OnixproDashboardController extends Controller
 {
+    // Onix Pro Version
+    public $version = '1.0.6';
+
     /**
      * @return [blade view]
      */
@@ -19,6 +22,9 @@ class OnixproDashboardController extends Controller
             return $new->json()['data'];
         });
 
-        return view('onixpro::content.dashboard.home', compact('news'));
+        // Version of the package
+        $version = $this->version;
+
+        return view('onixpro::content.dashboard.home', compact('news', 'version'));
     }
 }

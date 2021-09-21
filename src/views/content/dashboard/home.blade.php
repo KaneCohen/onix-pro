@@ -6,6 +6,10 @@
         <div class="mb-16 text-center">
             <h2 class="text-base font-semibold tracking-wide uppercase">
                 Features.
+                <button class="btn btn-primary">
+                    Version
+                <div class="badge ml-2">{{ $version }}</div>
+              </button>
             </h2>
             <p class="mt-2 leading-8 font-extrabold tracking-tight text-base sm:text-4xl">
                 Onix Pro Plans
@@ -16,7 +20,6 @@
                     href="https://daisyui.com/">Dasy ui</a>.
             </p>
         </div>
-
 
         <div class="flex flex-wrap my-12 dark:text-white">
             <div class="w-full border-b p-8">
@@ -262,26 +265,25 @@
                 <h2 class="my-4 text-4xl font-bold card-title">Version Updates</h2>
                 <div class="m-10">
                     @foreach ($news as $item)
-                        <div class="flex flex-col p-8 bg-base-300 shadow-md hover:shodow-lg rounded-2xl m-3">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="w-16 h-16 rounded-2xl p-3 border border-gray-800 text-primary bg-gray-900"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <div class="flex flex-col ml-3">
-                                        <div class="font-medium leading-none text-base-content">{{ $item['version'] }}</div>
-                                        <p class="text-sm text-base-content leading-none mt-1">{{ $item['message'] }}
-                                        </p>
-                                    </div>
+                    <div class="flex flex-col p-8 bg-base-300 shadow-md hover:shodow-lg rounded-2xl m-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="w-16 h-16 rounded-2xl p-3 border border-gray-800 text-primary bg-gray-900"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div class="flex flex-col ml-3">
+                                    <div class="font-medium leading-none text-base-content">{{ $item['version'] }}</div>
+                                    <p class="text-sm text-base-content leading-none mt-1">{{ $item['message'] }}
+                                    </p>
                                 </div>
-                                <a href="{{ $item['link'] }}"
-                                    target="_blank" class="btn btn-primary">Open on Github</a>
-
                             </div>
+                            <a href="{{ $item['link'] }}" target="_blank" class="btn btn-primary">Open on Github</a>
+
                         </div>
+                    </div>
                     @endforeach
                 </div>
 
