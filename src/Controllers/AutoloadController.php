@@ -21,10 +21,19 @@ class AutoloadController extends Controller
                 continue;
             }
             $html = (array)json_decode($value->content);
+
+            // Scripts
+            $scripts = explode('<script>', $html['gjs-html']);
+            // Check if is a valid array
+            if (is_array($scripts)) {
+                $scripts = str_replace('</script>', '', $scripts[1]);
+            }
+
             $finalData[] = [
                 'name'     => $value->label,
                 'category' => $value->category,
                 'content'  => $html['gjs-html'],
+                'script'   => $scripts,
             ];
         }
 
