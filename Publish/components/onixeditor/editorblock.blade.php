@@ -4,4 +4,5 @@
     autoLoadingUrl="{{ route('onixpro.autoload.block') }}"
     onix_app_js="{{ asset('vendor/Onixpro/js/app.js') }}"
     cssPath="{{ asset('vendor/Onixpro/css/app.css') }}"
+    javascriptPath="{{ asset('vendor/Onixpro/js/app.js') }}"
 />
