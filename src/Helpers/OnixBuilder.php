@@ -114,7 +114,7 @@ class OnixBuilder
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta http-equiv="X-UA-Compatible" content="ie=edge">
                 <title>{{ $title ?? "Onixpro" }}</title>
-                <link href="{{ asset("vendor/Onixpro/css/app.css") }}" rel="stylesheet">
+                <link href="{{ asset("' . config('onixpro.blade_file_css_reference') . '") }}" rel="stylesheet">
                 @stack("css")
                 <style>
                 ' . $content['gjs-css'] . '
@@ -125,7 +125,7 @@ class OnixBuilder
 
                     ' . $content['gjs-html'] . '
 
-                <script src="{{ asset("vendor/Onixpro/js/app.js") }}"></script>
+                <script src="{{ asset("' . config('onixpro.blade_file_javascript_reference') . '") }}"></script>
                 <script>
                     const Toast = Swal.mixin({
                         toast            : true,

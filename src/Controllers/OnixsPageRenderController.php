@@ -16,7 +16,7 @@ class OnixsPageRenderController extends Controller
         if (empty($page)) {
             abort(404);
         }
-
+        // RETURN THE BLADE FILE NAME
         return view($page->blade());
     }
 }

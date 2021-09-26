@@ -1,4 +1,4 @@
-// Import vue  s
+// Import some javascript lib reuqied and axios
 import "./extra";
 
 // Fontawesome

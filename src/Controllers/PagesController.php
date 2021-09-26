@@ -106,11 +106,11 @@ class PagesController extends Controller
      */
     public function editorSave(Request $request, OnixPage $page)
     {
-        // Create the fisical file
+        // Create the fisical file using the onix helper
         $onixFileManger = new OnixBuilder();
-
+        // check if the page is standalone
         $saveAdPage = $page->standalone == 1 ? true : false;
-
+        // save the html data into a blade file
         $filePath = $onixFileManger
             ->savePageFile(Request('data'), Str::slug($page->title), 'views/pages/onix', $saveAdPage);
         // Save in the database so we can edit later
