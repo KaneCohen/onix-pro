@@ -4,17 +4,17 @@
 
 ## More information please check the tutorial in this link https://onixpro.net/tutorial
 
-Onix pro is a page builder that use grape-js, tailwind and integrate with laravel, Onix Pro allow you to save pages, blocks and use the Onix Pro Store a server to quickly help you build pages.
+Onix pro is a page builder that uses Grapejs, tailwind and integrates with Laravel. Onix Pro allows you to save pages, blocks and use the Onix Pro Store which is a server to quickly help you build pages.
 
 # Features
 
 - [ ] Tailwind css framework based, all the components out of the box works with tailwind.
-- [ ] Quickly page desing.
+- [ ] Quick page design.
 - [ ] Simple Laravel integration.
-- [ ] Onix Store allow you to download new designs on the fly.
-- [ ] Npm presetup ready to be modify to you need.
+- [ ] Onix Store allows you to download new designs on the fly.
+- [ ] Npm is set-up ready to be modified to your needs.
 - [ ] Open source you can change for you needs.
-- [ ] Out of the box integrated with Daisy Ui framework, but can be disable.
+- [ ] Out of the box integrated with Daisy Ui\I framework, but can be disabled.
 
 # Installation
 
@@ -23,8 +23,8 @@ You have 2 options.
 (composer require mariojgt/onixpro)
 
 1. composer require mariojgt/onixpro
-2. php artsain vendor:publish --force  (select the package number)
+2. php artisan vendor:publish --force  (select the package number)
 3. php artisan migrate
-4. to to the url yourproject.com/onixpro
+4. Go to the url yourproject.com/onixpro
 
-Onix Pro if free to use but if you wish to use the store to quickly download pages or block you have to create one account in the official website and select a free or Premium plan, more information https://onixpro.net/
+Onix Pro is free to use but if you wish to use the store to quickly download pages or blocks you have to create an account at the official website and select a Free or Premium plan; more information is at https://onixpro.net/
