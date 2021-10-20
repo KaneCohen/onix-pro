@@ -9,7 +9,7 @@ use Mariojgt\Onixpro\Helpers\OnixProApi;
 class OnixproDashboardController extends Controller
 {
     // Onix Pro Version
-    public $version = '1.0.7';
+    public $version = '1.1.1';
 
     /**
      * @return [blade view]

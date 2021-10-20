@@ -1,6 +1,4 @@
 <x-onixpro::layout.main>
-
-
     <div class="grid grid-cols-1 gap-6">
         <div class="card bordered lg:bg-base-200 rounded-box">
             <div class="card-body">

@@ -122,7 +122,6 @@ class OnixBuilder
             </head>
 
             <body>
-
                     ' . $content['gjs-html'] . '
 
                 <script src="{{ asset("' . config('onixpro.blade_file_javascript_reference') . '") }}"></script>
